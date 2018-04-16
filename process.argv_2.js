@@ -1,4 +1,4 @@
-process.argv returns an array containing complete command line. ['node', 'file path', 'arguments','as','strings']
+//process.argv returns an array containing complete command line. ['node', 'file path', 'arguments','as','strings']
 
 var sum = 0;
 var i = 2;
