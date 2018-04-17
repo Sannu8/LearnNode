@@ -1,11 +1,17 @@
-//Exercise 4:
-var fs = require("fs"); //importing fs module from Node core library as it it needed to perform a filesystem operation.
+//Exercise 5:
+var fs = require("fs");
+var path = require("path");
+var dir = process.argv[2];
+var ext = process.argv[3];
+var array = [];
 
-fs.readFile(process.argv[2], "utf8", function callback(err, data) {
+fs.readdir(dir, function callback(err, list) {
   if (err) {
     console.log("There's an error");
-  } //incase of errror notifying that there's an error.
+  }
 
-  var array = data.split("\n");
-  console.log(array.length - 1);
+  for (var i = 0; i < list.length; i++) {
+    array = path.extname(list[i]);
+    console.log(array);
+  }
 });
