@@ -11,6 +11,12 @@ fs.readdir(dir, function callback(err, list) {
     console.log("There's an error");
   }
 
+  list.forEach(file => {
+    if (path.extname(file) === ext) {
+      console.log(file);
+    }
+  });
+  /*
   for (var i = 0; i < list.length; i++) {
     var array = path.extname(list[i]); //here, path.extname method gets the extension name of the file starting from '.'
 
@@ -18,4 +24,5 @@ fs.readdir(dir, function callback(err, list) {
       console.log(list[i]);
     }
   }
+  */
 });

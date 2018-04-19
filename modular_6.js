@@ -1,23 +1,19 @@
-var dir = process.argv[2];
-var ext = process.argv[3];
+//Exercise 6
 
-fs.readdir(dir, function callback(err, list) {
+var fs = require("fs");
+var path = require("path");
+
+module.exports = function filter(dir, ext, callback) {
+  var extension = "." + ext;
+
+  fs.readdir(dir, (err, list) => {
     //fs.readdir reads the files in a directory.
     if (err) {
-      console.log("There's an error");
+      return callback(err);
     }
-  
-    for (var i = 0; i < list.length; i++) {
-      var array = path.extname(list[i]); //here, path.extname method gets the extension name of the file starting from '.'
-  
-      if (array === ext) {
-        console.log(list[i]);
-      }
-    }
+
+    list = list.filter(file => path.extname(file) === extension);
+
+    callback(null, list);
   });
-
-  data = is filtered list of files
-
-module.exports = function(dir, ext,(err,data)=>{if (err) {
-    console.log("There's an error");
-  }}) {};
+};
